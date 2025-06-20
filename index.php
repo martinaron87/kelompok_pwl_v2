@@ -10,9 +10,6 @@
     <link rel="stylesheet" href="bootstrap-icons/bootstrap-icons.min.css">
     <!-- akhir bootstrap -->
 
-    <!-- own css -->
-    <link rel="stylesheet" href="styles.css">
-
     <title>Service Gadget</title>
 </head>
 
@@ -25,16 +22,16 @@
                 Service Gadget
             </a>
 
-            <form class="d-flex justify-content-end">
-                <a href="auth/form_login.php" class="btn btn-outline-success me-2" type="button">Masuk</>
-                <a href="auth/form_daftar.php" class="btn btn-sm btn-outline-secondary" type="button">Buat Akun</>
-            </form>
+            <div class="d-flex justify-content-end">
+                <a href="auth/form_login.php" class="btn btn-outline-success me-4" type="button">Masuk</a>
+                <a href="auth/form_daftar.php" class="btn btn-outline-secondary"type="button">Buat Akun</a>
+            </div>
         </div>
     </nav>
     <!-- akhir navbar -->
 
     <!-- jumbotron -->
-    <div class="container-fluid mt-5">
+    <main class="container-fluid mt-5">
         <div class="container justify-content-center text-center">
             <h1 class="display-3">
                 Selamat datang,
@@ -47,7 +44,7 @@
             <img src="img/menu_logo.png" class="img-thumbnail mx-auto d-block" alt="Service Gadget Logo">
         </div>
 
-        <div class="container justify-content-center text-center mt-4">
+        <div class="container justify-content-center text-center mt-4 mb-4">
             <h1 class="display-6">
                 Gadget House
             </h1>
@@ -56,7 +53,7 @@
                 Jl. Raya Tengah No. 80, RT.6/RW.1, Gedong, Kec. Pasar Rebo, Jakarta Timur, DKI Jakarta 13760
             </p>
         </div>
-    </div>
+    </main>
     <!-- akhir jumbotron -->
 
     <!-- footer -->
