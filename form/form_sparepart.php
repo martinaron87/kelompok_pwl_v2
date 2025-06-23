@@ -24,7 +24,6 @@ $sql = mysqli_query($conn, $query) or die(mysqli_error($conn));
     <!-- Bootstrap & Icons -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
 
     <style>
         body {
@@ -86,6 +85,8 @@ $sql = mysqli_query($conn, $query) or die(mysqli_error($conn));
             <div>
                 <h2 class="fw-semibold mb-0">Data Harga Sparepart</h2>
                 <small class="text-muted">Berisi daftar harga sparepart yang tersedia</small>
+                <br>
+                <em>— CRUD: Create, Read, Update, Delete</em>
             </div>
             <div class="d-flex gap-2">
                 <a href="../kelola.php?tambah=sparepart" class="btn btn-primary">
@@ -93,11 +94,12 @@ $sql = mysqli_query($conn, $query) or die(mysqli_error($conn));
                 </a>
             </div>
         </div>
+        <!-- akhir header -->
 
         <!-- Tabel -->
         <div class="card shadow-sm">
             <div class="card-body p-0">
-                <table id="sparepartTable" class="table table-bordered align-middle mb-0 text-center">
+                <table id="sparepartTable" class="table table-bordered table-striped align-middle mb-0 text-center table-hover">
                     <thead class="table-light">
                         <tr>
                             <th><i class="bi bi-hash"></i> Kode</th>
@@ -112,7 +114,7 @@ $sql = mysqli_query($conn, $query) or die(mysqli_error($conn));
                     <tbody>
                         <?php while ($hasil = mysqli_fetch_assoc($sql)): ?>
                             <tr>
-                                <td><?= $hasil['kd_barang']; ?></td>
+                                <td><span class="badge bg-dark"><?= $hasil['kd_barang']; ?></span></td>
                                 <td><?= $hasil['nama_barang']; ?></td>
                                 <td><span class="badge bg-success">Rp
                                         <?= number_format($hasil['harga_barang'], 0, ',', '.'); ?></span></td>
@@ -143,8 +145,6 @@ $sql = mysqli_query($conn, $query) or die(mysqli_error($conn));
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script>
         $(document).ready(function () {

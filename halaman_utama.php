@@ -12,8 +12,6 @@ if ($_SESSION['role'] === 'admin') {
     $jumlahPelanggan = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS total FROM pelanggan"))['total'];
     $jumlahService = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS total FROM service"))['total'];
     $jumlahSparepart = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS total FROM sparepart"))['total'];
-} elseif ($_SESSION['role'] === 'teknisi') {
-    $jumlahService = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS total FROM service"))['total'];
 }
 ?>
 
@@ -76,7 +74,7 @@ if ($_SESSION['role'] === 'admin') {
             <img src="img/menu_logo.png" class="brand-logo" alt="Logo"> <strong>Service Gadget</strong>
         </a>
         <div class="ms-auto d-flex align-items-center gap-3">
-            <span class="text-white">Welcome, <?= $_SESSION['username']; ?> <span
+            <span class="text-white">Selamat datang, <?= $_SESSION['username']; ?> <span
                     class="badge bg-light text-dark ms-1"><?= strtoupper($_SESSION['role']); ?></span></span>
         </div>
     </nav>
@@ -95,10 +93,10 @@ if ($_SESSION['role'] === 'admin') {
 
                     <a href="form/form_sparepart.php"><i class="bi bi-cpu me-2"></i>Data Sparepart</a>
 
-                    <a href="form/form_transaksi.php"><i class="bi bi-receipt me-2"></i>Transaksi Service</a>
+                    <a href="form/form_transaksi.php"><i class="bi bi-receipt me-2"></i>Transaksi Servis</a>
                 <?php endif; ?>
 
-                <a href="auth/logout.php"><i class="bi bi-box-arrow-left me-2"></i>Logout</a>
+                <a href="auth/logout.php"><i class="bi bi-box-arrow-left me-2"></i>Keluar Akun</a>
             </nav>
 
             <!-- Main Content -->
@@ -106,7 +104,6 @@ if ($_SESSION['role'] === 'admin') {
                 <!-- Breadcrumb -->
                 <nav aria-label="breadcrumb" class="mt-3">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Halaman Utama</li>
                     </ol>
                 </nav>

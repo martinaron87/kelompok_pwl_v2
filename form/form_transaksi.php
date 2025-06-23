@@ -9,7 +9,7 @@ hanyaAdmin();
 
 include '../databases/koneksi.php';
 
-$query = "SELECT ts.*, p.nama_pelanggan, s.jenis_service 
+$query = "SELECT ts.*, p.nama_pelanggan, s.jenis_service, s.biaya_service 
           FROM transaksi ts
           JOIN pelanggan p ON ts.id_pelanggan = p.id_pelanggan
           JOIN service s ON ts.id_service = s.id_service";
@@ -28,7 +28,7 @@ $sql = mysqli_query($conn, $query);
     <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="pt-5">
+<body class="bg-light pt-5">
     <!-- navbar -->
     <nav class="navbar fixed-top bg-primary navbar-dark shadow-sm">
         <div class="container-fluid d-flex justify-content-between align-items-center">
@@ -80,6 +80,8 @@ $sql = mysqli_query($conn, $query);
         <div>
             <h2 class="fw-semibold mb-0">Data Transaksi</h2>
             <small class="text-muted">Berisi transaksi yang tersedia</small>
+            <br>
+            <em>— CRUD: Create, Read, Update, Delete</em>
         </div>
 
         <!-- Tombol Aksi -->
@@ -90,31 +92,69 @@ $sql = mysqli_query($conn, $query);
         </div>
 
         <!-- Tabel -->
-        <div class="table-responsive">
-            <table class="table table-bordered table-striped align-middle text-center">
-                <thead class="table-dark">
+        <div class="card shadow-sm"></div>
+        <div class="card-body table-responsive">
+            <table class="table table-bordered table-striped table-hover align-middle text-center">
+                <thead class="table-light align-middle">
                     <tr>
                         <th>ID Transaksi</th>
                         <th>Pelanggan</th>
                         <th>Service</th>
                         <th>Tanggal Masuk</th>
-                        <th>Kerusakan</th>
+                        <th>Detail Kerusakan</th>
+                        <th>Sparepart</th>
+                        <th>Total Biaya</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="align-middle text-center">
                     <?php while ($row = mysqli_fetch_assoc($sql)): ?>
+                        <?php
+                        $id_transaksi = $row['id_transaksi'];
+                        $query_sp = mysqli_query($conn, "
+                            SELECT sp.nama_barang, sp.harga_barang, ts.jumlah    
+                            FROM transaksi_sparepart ts
+                            JOIN sparepart sp ON ts.kd_barang = sp.kd_barang
+                            WHERE ts.id_transaksi_sparepart = '$id_transaksi'
+                        ");
+
+                        $daftar_sparepart = [];
+                        $total_sparepart = 0;
+
+                        while ($sp = mysqli_fetch_assoc($query_sp)) {
+                            $nama = $sp['nama_barang'];
+                            $jumlah = $sp['jumlah'];
+                            $harga = $sp['harga_barang'];
+                            $total_sparepart += $jumlah * $harga;
+                            $daftar_sparepart[] = "$nama ($jumlah)";
+                        }
+
+                        // Hitung total biaya akhir
+                        $total_biaya = $total_sparepart + $row['biaya_service'];
+                        ?>
                         <tr>
                             <td><span class="badge bg-dark"><?= $row['id_transaksi'] ?></span></td>
 
                             <td><?= $row['nama_pelanggan'] ?></td>
 
                             <td><?= $row['jenis_service'] ?></td>
-                            
+
                             <td><?= $row['tanggal_masuk'] ?></td>
 
                             <td><?= $row['kerusakan'] ?></td>
-                            
+
+                            <td>
+                                <?php
+                                if (empty($daftar_sparepart)) {
+                                    echo "-";
+                                } else {
+                                    echo implode(', ', $daftar_sparepart);
+                                }
+                                ?>
+                            </td>
+
+                            <td>Rp<?= number_format($total_biaya, 0, ',', '.') ?></td>
+
                             <td>
                                 <a href="../proses.php?hapusTransaksi=<?= $row['id_transaksi'] ?>"
                                     class="btn btn-sm btn-danger"
@@ -129,6 +169,7 @@ $sql = mysqli_query($conn, $query);
                 </tbody>
             </table>
         </div>
+    </div>
     </div>
 
     <script>

@@ -100,6 +100,8 @@ $sql = mysqli_query($conn, $query) or die(mysqli_error($conn));
             <div>
                 <h2 class="fw-semibold mb-0">Data Biaya Jasa Service</h2>
                 <small class="text-muted">Berisi daftar biaya jasa service yang tersedia di sistem</small>
+                <br>
+                <em>— CRUD: Create, Read, Update, Delete</em>
             </div>
             <div class="d-flex flex-wrap gap-2">
                 <a href="../kelola.php?tambah=servis" class="btn btn-primary btn-modern shadow-sm">
@@ -112,7 +114,7 @@ $sql = mysqli_query($conn, $query) or die(mysqli_error($conn));
         <div class="card card-modern">
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-modern table-hover table-bordered align-middle text-center">
+                    <table class="table table-modern table-hover table-bordered align-middle table-striped text-center">
                         <thead class="table-light">
                             <tr>
                                 <th><i class="bi bi-hash"></i> ID Service</th>
@@ -124,7 +126,7 @@ $sql = mysqli_query($conn, $query) or die(mysqli_error($conn));
                         <tbody>
                             <?php while ($hasil = mysqli_fetch_assoc($sql)): ?>
                                 <tr>
-                                    <td><?= $hasil['id_service']; ?></td>
+                                    <td><span class="badge bg-dark"><?= $hasil['id_service']; ?></span></td>
                                     <td><?= $hasil['jenis_service']; ?></td>
                                     <td>
                                         <span class="badge bg-success">

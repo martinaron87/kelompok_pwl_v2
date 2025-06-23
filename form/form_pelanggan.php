@@ -37,7 +37,7 @@ $sql = mysqli_query($conn, $query) or die(mysqli_error($conn));
 </nav>
 
 
-<div class="container mt-5">
+<div class="container mt-4">
 
     <!-- Breadcrumb -->
     <nav aria-label="breadcrumb">
@@ -79,6 +79,8 @@ $sql = mysqli_query($conn, $query) or die(mysqli_error($conn));
         <div>
             <h2 class="fw-semibold mb-0">Data Pelanggan</h2>
             <small class="text-muted">Berisi daftar pelanggan yang sudah terdaftar</small>
+            <br>
+            <em>— CRUD: Create, Read, Update, Delete</em>
         </div>
         <div class="d-flex gap-2">
             <a href="../kelola.php?tambah=pelanggan" class="btn btn-primary shadow-sm">
@@ -90,12 +92,12 @@ $sql = mysqli_query($conn, $query) or die(mysqli_error($conn));
     <!-- Tabel -->
     <div class="card shadow-sm">
         <div class="card-body table-responsive">
-            <table class="table table-hover table-bordered align-middle">
+            <table class="table table-hover table-bordered table-striped align-middle">
                 <thead class="table-light text-center">
                     <tr>
                         <th><i class="bi bi-hash"></i> ID</th>
                         <th><i class="bi bi-person-circle"></i> Nama</th>
-                        <th><i class="bi bi-gender-ambiguous"></i> JK</th>
+                        <th><i class="bi bi-gender-ambiguous"></i> Jenis Kelamin</th>
                         <th><i class="bi bi-telephone-fill"></i> Telepon</th>
                         <th><i class="bi bi-geo-alt-fill"></i> Alamat</th>
                         <th><i class="bi bi-calendar-date"></i> Tanggal</th>
@@ -128,23 +130,6 @@ $sql = mysqli_query($conn, $query) or die(mysqli_error($conn));
         </div>
     </div>
 </div>
-
-<!-- Script Dark Mode -->
-<script>
-    function toggleDarkMode() {
-        document.body.classList.toggle("dark-mode");
-    }
-
-    setTimeout(() => {
-        const alert = document.querySelector('.alert');
-        if (alert) {
-            alert.classList.remove('show');
-            alert.classList.add('fade');
-            alert.style.opacity = '0';
-            setTimeout(() => alert.remove(), 500);
-        }
-    }, 3000);
-</script>
 
 </body>
 </html>
