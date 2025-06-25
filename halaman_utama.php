@@ -78,7 +78,8 @@ if ($_SESSION['role'] === 'admin') {
                     class="badge bg-light text-dark ms-1"><?= strtoupper($_SESSION['role']); ?></span></span>
         </div>
     </nav>
-
+    <!-- akhir navbar -->
+        
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar -->
@@ -98,6 +99,7 @@ if ($_SESSION['role'] === 'admin') {
 
                 <a href="auth/logout.php"><i class="bi bi-box-arrow-left me-2"></i>Keluar Akun</a>
             </nav>
+            <!-- akhir sidebar -->
 
             <!-- Main Content -->
             <main class="col-md-10 ms-sm-auto px-4">
@@ -166,39 +168,11 @@ if ($_SESSION['role'] === 'admin') {
             </main>
         </div>
     </div>
+    <!-- akhir main content -->
 
     <!-- Scripts -->
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        const ctx = document.getElementById('chartService');
-        new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun'],
-                datasets: [{
-                    label: 'Jumlah Layanan',
-                    data: [10, 35, 25, 55, 40, 70],
-                    borderColor: 'rgba(54, 162, 235, 1)',
-                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                    tension: 0.4
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: { display: true }
-                },
-                scales: {
-                    y: { beginAtZero: true }
-                }
-            }
-        });
-
-        function toggleDarkMode() {
-            document.body.classList.toggle("dark-mode");
-        }
-    </script>
 </body>
 
 </html>

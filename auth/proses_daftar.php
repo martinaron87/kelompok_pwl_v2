@@ -12,8 +12,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($posisi == 'admin' && !preg_match('/^ID\d{3}$/', $id)) {
         die("Format ID Admin harus ID diikuti 3 angka (contoh: ID001)");
-    } elseif ($posisi == 'teknisi' && !preg_match('/^TK\d{3}$/', $id)) {
-        die("Format ID Teknisi harus TK diikuti 3 angka (contoh: TK001)");
     }
 
     if (empty($id) || empty($username) || empty($email) || empty($posisi) || empty($password)) {

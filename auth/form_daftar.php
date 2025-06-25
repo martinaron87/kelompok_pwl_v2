@@ -45,7 +45,7 @@
 
             <div class="form-floating mb-3">
                 <input type="text" name="username" class="form-control" id="username" placeholder="Username" required>
-                <label for="username">Username</label>
+                <label for="username">Nama Pengguna</label>
             </div>
 
             <div class="form-floating mb-3">
@@ -63,13 +63,13 @@
 
             <div class="form-floating mb-3">
                 <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
-                <label for="password">Password</label>
+                <label for="password">Kata Sandi</label>
             </div>
 
             <div class="form-floating mb-3">
                 <input type="password" name="confirm_password" class="form-control" id="confirm_password" placeholder="Konfirmasi Password" required>
-                <label for="confirm_password">Konfirmasi Password</label>
-                <div id="password-mismatch" class="password-mismatch">Password tidak cocok!</div>
+                <label for="confirm_password">Konfirmasi Kata Sandi</label>
+                <div id="password-mismatch" class="password-mismatch">Kata sandi tidak cocok!</div>
             </div>
 
             <button class="w-100 btn btn-lg btn-success" type="submit">

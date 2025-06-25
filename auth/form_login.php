@@ -78,7 +78,7 @@ if (isset($_SESSION['email'])) {
 
             <div class="form-floating mb-3">
                 <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
-                <label for="password">Password</label>
+                <label for="password">Kata Sandi</label>
             </div>
 
             <button class="w-100 btn btn-lg btn-primary" type="submit">

@@ -37,9 +37,9 @@ $query = mysqli_query($conn, "SELECT * FROM sparepart");
             <h3 class="fw-bold"><i class="bi bi-cpu-fill me-2"></i>Data Sparepart</h3>
             <p class="text-muted mb-0">Daftar komponen yang tersedia di toko.</p>
         </div>
-        <a href="../halaman_utama.php" class="btn btn-outline-secondary">
-            <i class="bi bi-arrow-left me-1"></i> Kembali
-        </a>
+            <a href="../halaman_utama.php" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left me-1"></i> Kembali
+            </a>
     </div>
 
     <!-- Tabel -->
